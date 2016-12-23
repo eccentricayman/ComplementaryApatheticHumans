@@ -1,0 +1,24 @@
+Ayman Ahmed, Jason Chua, Dylan Wright, <I FORGOT HIS NAME>
+
+Project:
+This project is a terminal based version of Cards Against Humanity, a popular card game involving multiple white cards, 
+with phrases on them being used to fill in the blank for a black card. All players start out with 10 white cards.
+The Card Czar is the person who created the game; he holds the black card, and decides which 
+white card combined with his black card has the funniest phrase. The person who has the funniest phrase becomes the 
+Card Czar next turn, and everyone else gets one more white card. The game ends when someone out of white cards.
+
+UI:
+The project will be used through the terminal; a player can create a game or search for existing ones. There are minimum 4
+players per game. Once the game starts, each person will get a list of their white cards, and the card czar will get his
+black card. Once every person has entered a number (corresponding to a card) into their terminal, the Card Czar and the players
+will have each phrase show up on their screen. Once they all print, the card czar will choose the funniest, and it will display
+that phrase plus the one who's white card created it. Everybody else will get a white card, and that person will start as a 
+card czar. Throughout the game, players can speak to the entire group, just having a single line message print to everyones'
+terminals.
+
+Design:
+    Breakdown:
+        TBD
+
+    Timeline:
+        TBD
