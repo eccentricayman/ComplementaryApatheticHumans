@@ -42,6 +42,10 @@ Technical Design:
           or
           { 'cards', {<# of cards>, 'card1'}; };
 
+    Algorithms:
+        - Bogosort to shuffle the cards
+        - ¯\_(ツ)_/¯
+
     Timeline:
         Day 1: Parse cards, and be able to shuffle them.
         Days 2-3: Make a working client using fake data structs from a "server".
