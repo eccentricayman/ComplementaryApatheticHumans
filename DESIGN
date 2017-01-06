@@ -20,9 +20,35 @@ that phrase plus the one who's white card created it. Everybody else will get a 
 card czar. Throughout the game, players can speak to the entire group, just having a single line message print to everyones'
 terminals.
 
-Design:
+Technical Design:
+    Topics Covered:
+        - We will be using basic networking to have a server and multiple clients. The server will also act as a client, 
+          but will have extra abilities like stopping the game.
+        - We will use semaphores to limit the amount of players that can join the game.
+        - We will use file I/O to get data from the cards against humanity .txt file, which contains the data for all the
+          cards.
+        
     Breakdown:
-        TBD
+        - The networking will be done at the end - there are two parts, first the game and then the networking.
+        - The game will have three parts: parsing the cards, making the user interface, and creating the data 
+        - transfer method.
+        
+    Data Structures:
+        - We will use arrays to hold the black card and white card info.
+        - We will use structs to send data between client/server. The structs will all have 1 string + nested struct; string is
+          info type, while nested struct will contain data being sent. 
+          I.E. 
+          ```{ 'message', { 'hi!' }; };```
+          or
+          ```{ 'cards', {<# of cards>, 'card1'}; };```
 
     Timeline:
-        TBD
+        Day 1: Parse cards, and be able to shuffle them.
+        Days 2-3: Make a working client using fake data structs from a "server".
+        Day 4: Make the client send working data structs.
+        Day 5: Make the server work with data from the client.
+        Day 6: Make the server send data properly.
+        Days 8-9: Make the client UI for the player running the server.
+        Days 10-11: Make the networking part of the server, and have a UI for creating a game.
+        Days 12-13: Make the client UI able to find a game and connect to the server.
+        Day 14: Create one unified C file that lets you choose to start a game server or look for one.
