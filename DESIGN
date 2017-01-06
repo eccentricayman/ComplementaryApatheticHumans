@@ -38,9 +38,9 @@ Technical Design:
         - We will use structs to send data between client/server. The structs will all have 1 string + nested struct; string is
           info type, while nested struct will contain data being sent. 
           I.E. 
-          ```{ 'message', { 'hi!' }; };```
+          { 'message', { 'hi!' }; };
           or
-          ```{ 'cards', {<# of cards>, 'card1'}; };```
+          { 'cards', {<# of cards>, 'card1'}; };
 
     Timeline:
         Day 1: Parse cards, and be able to shuffle them.
