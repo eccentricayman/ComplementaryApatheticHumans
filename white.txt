@@ -750,7 +750,7 @@ A for-real lizard that spits blood from its eyes.
 Blackula.
 The tiniest shred of evidence that God is real.
 My dad's dumb fucking face.
-Prince Ali,\nfabulous he,\nAli Ababwa.
+Prince Ali,<br>fabulous he,<br>Ali Ababwa.
 A manhole.
 A sex goblin with a carnival penis.
 A bunch of idiots playing a card game instead of interacting like normal humans.
@@ -1451,7 +1451,7 @@ Lagging out.
 Getting bitten by a radioactive spider and then battling leukemia for 30 years.
 A giant mechanical bird with a tragic backstory.
 The pure, Zen-like state that exists between micro and macro.
-Xena,\nWarrior Princess.
+Xena,<br>Warrior Princess.
 Endless ninjas.
 Whatever <i>Final Fantasy</i> bullshit happened this year.
 Collecting all seven power crystals.

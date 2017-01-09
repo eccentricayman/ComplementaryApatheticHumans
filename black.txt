@@ -22,7 +22,7 @@ Next from J.K. Rowling: Harry Potter and the Chamber of _.
 A romantic, candlelit dinner would be incomplete without _.
 White people like _.
 _. Betcha can't have just one!
-War!\n\nWhat is it good for?
+War!<br><br>What is it good for?
 BILLY MAYS HERE FOR _.
 _. High five, bro.
 During sex, I like to think about _.
@@ -74,14 +74,14 @@ That's right, I killed _. How, you ask? _.
 When I was tripping on acid, _ turned into _.
 _ + _ = _.
 What's the next superhero/sidekick duo?
-Dear Abby,\n\nI'm having some trouble with _ and would like your advice.
+Dear Abby,<br><br>I'm having some trouble with _ and would like your advice.
 After the earthquake, Sean Penn brought _ to the people of Haiti.
 In L.A. County Jail, word is you can trade 200 cigarettes for _.
 Maybe she's born with it. Maybe it's _.
 Life for American Indians was forever changed when the White Man introduced them to _.
 Next on ESPN2, the World Series of _.
 Step 1: _. Step 2: _. Step 3: Profit.
-Here is the church\nHere is the steeple\nOpen the doors\nAnd there is _.
+Here is the church<br>Here is the steeple<br>Open the doors<br>And there is _.
 How did I lose my virginity?
 During his childhood, Salvador Dal&iacute; produced hundreds of paintings of _.
 In 1,000 years, when paper money is a distant memory, how will we pay for goods and services?
@@ -159,26 +159,26 @@ _: Hours of fun. Easy to use. Perfect for _!
 _. Awesome in theory, kind of a mess in practice.
 As part of his contract, Prince won't perform without _ in his dressing room.
 Man, this is bullshit. Fuck _.
-Dear Leader Kim Jong-un,\nour village praises your infinite wisdom with a humble offering of _.
+Dear Leader Kim Jong-un,<br>our village praises your infinite wisdom with a humble offering of _.
 _ may pass, but _ will last forever.
-She's up all night for good fun.\nI'm up all night for _.
+She's up all night for good fun.<br>I'm up all night for _.
 Alright, bros. Our frat house is condemned, and all the hot slampieces are over at Gamma Phi. The time has come to commence Operation _.
 The Japanese have developed a smaller, more efficient version of _.
 In return for my soul, the Devil promised me _, but all I got was _.
 You guys, I saw this crazy movie last night. It opens on _, and then there's some stuff about _, and then it ends with _.
 _ will never be the same after _.
 Wes Anderson's new film tells the story of a precocious child coming to terms with _.
-In the beginning, there was _.\nAnd the Lord said, "Let there be _."
+In the beginning, there was _.<br>And the Lord said, "Let there be _."
 What's fun until it gets weird?
 We never did find _, but along the way we sure learned a lot about _.
-You've seen the bearded lady!\nYou've seen the ring of fire!\nNow, ladies and gentlemen, feast your eyes upon _!
+You've seen the bearded lady!<br>You've seen the ring of fire!<br>Now, ladies and gentlemen, feast your eyes upon _!
 How am I compensating for my tiny penis?
 I'm sorry, sir, but we don't allow _ at the country club.
 2 AM in the city that never sleeps. The door swings open and <i>she</i> walks in, legs up to here. Something in her eyes tells me she's looking for _.
 As king, how will I keep the peasants in line?
 Oprah's book of the month is "_ For _: A Story of Hope."
 Do <i>not</i> fuck with me! I am literally _ right now.
-Adventure.\nRomance.\n_.\n\nFrom Paramount Pictures, "_."
+Adventure.<br>Romance.<br>_.<br><br>From Paramount Pictures, "_."
 I am become _, destroyer of _!
 It lurks in the night. It hungers for flesh. This summer, no one is safe from _.
 If you can't handle _, you'd better stay away from _.
@@ -350,9 +350,9 @@ Every Christmas, my uncle gets drunk and tells the story about _.
 What keeps me warm during the cold, cold winter?
 On the third day of Christmas, my true love gave to me: three French hens, two turtle doves, and _.
 Wake up, America. Christmas is under attack by secular liberals and their _.
-Here's what you can expect for the new year.\nOut: _.\nIn: _.
-Revealed:\nWhy He Really Resigned!\nPope Benedict's Secret Struggle with _!
-GREETINGS HUMANS\n\nI AM _ BOT\n\nEXECUTING PROGRAM
+Here's what you can expect for the new year.<br>Out: _.<br>In: _.
+Revealed:<br>Why He Really Resigned!<br>Pope Benedict's Secret Struggle with _!
+GREETINGS HUMANS<br><br>I AM _ BOT<br><br>EXECUTING PROGRAM
 Kids these days with their iPods and their Internet. In my day, all we needed to pass the time was _.
 Because they are forbidden from masturbating, Mormons channel their repressed sexual energy into _.
 Blessed are you, Lord our God, creator of the universe, who has granted us _.
@@ -372,7 +372,7 @@ No Enforcer wants to manage the panel on _.
 _: Achievement unlocked.
 There was a riot at the Gearbox panel when they gave the attendees _.
 What's the latest bullshit that's troubling this quaint fantasy town?
-<i>(Heavy breathing)</i>\nLuke, I am _.
+<i>(Heavy breathing)</i><br>Luke, I am _.
 You think you have defeated me? Well, let's see how you handle _!
 What the hell?! They added a 6/6 with flying, trample, and _.
 _ is way better in _ mode.
