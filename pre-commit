@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+exec < /dev/tty
+
+printf "1)Jason\n2)Ayman\n3)No devlog message.\nPick a number: "
+
+read name
+
+if [ "$name" -eq "3" ]; then
+    echo "Commiting without adding to devlog."
+    exit 0;
+fi
+
+printf "What do you wanna add to the devlog: "
+
+read devlog
+
+now="$(date +"%Y-%m-%d %r")"
+
+if [ "$name" -eq "1" ]; then
+    echo "jasonC - $now - $devlog" >> devlog.txt;
+    git add devlog.txt;
+    exit 0;
+fi
+
+if [ "$name" -eq "2" ]; then
+    echo "aymanA - $now - $devlog" >> devlog.txt;
+    git add devlog.txt;
+    exit 0;
+fi
+
+exit 1;    
