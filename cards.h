@@ -18,3 +18,5 @@ char * getWhiteCard();
 //hardcoded limit: 1589 white cards
 //Returns random black card as a string and removes it from cards
 char * getBlackCard();
+
+//prints a card, with newlines, italics, and other formatting
