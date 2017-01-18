@@ -60,12 +60,35 @@ void printCard(char * toPrint) {
     //we are replacing these with their respective term versions
     const char italic[3] = "<i>";
     const char italicClose[4] = "</i>";
-    const char newline = "<br>";
+    const char newline[4] = "<br>";
+
+    //so we don't modify original pointer
+    char * toPrintLocal = "";
     
+    //parsing
+    if (strstr(toPrint, "<") == strstr(toPrint, "<i>")) {
+        strncpy(toPrintLocal, toPrint, strstr(toPrint, "<") - toPrint);
+        strcpy(toPrintLocal, "\e[3m");
+        sprintf(toPrintLocal, "%.*s", 4, strstr(toPrint, "<") + 3);
+        //debuggin
+        printf("%.*s", 4, strstr(toPrint, "<") + 3);
+        printf("%s", toPrintLocal);
+        printCard(toPrintLocal);
+    }
+    else if (strstr(toPrint, "<") == strstr(toPrint, newline)) {
+        
+    }
+    else if (strstr(toPrint, "<") == strstr(toPrint, italicClose)) {
+        
+    }
+    else {
+        printf("%s", toPrint);
+    }
 }
 
 int main() {
     printf("white: %s\n", getWhiteCard());
     printf("black: %s\n", getBlackCard());
     return 0;
+    printCard("ayy<i>ayy");
 }
