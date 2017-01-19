@@ -18,10 +18,13 @@ int client_connect(char *host) {
 }
 
 int main() {
+
   int sd;
-  char *host = "127.0.0.1";
-  sd = client_connect(host);
   char buffer[1000];
+  char *host = "127.0.0.1";
+
+  sd = client_connect(host);
+
   while (1) {
     printf("enter message: ");
     fgets( buffer, sizeof(buffer), stdin );
@@ -31,5 +34,6 @@ int main() {
     write( sd, buffer, sizeof(buffer) );
     
   }
+
   return 0;
 }

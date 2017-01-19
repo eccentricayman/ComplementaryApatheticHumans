@@ -31,15 +31,17 @@ int server_connect(int sd) {
 }
 
 int main() {
-  int sd ,connection; 
+
+  int sd ,connection, semid;
+
   sd = server_setup();
   char buffer[1000];
-  while(1){
-    connection = server_connect(sd);
-    while (read( connection, buffer, sizeof(buffer) )) {
+  connection = server_connect(sd);
+ 
+  while (read( connection, buffer, sizeof(buffer) ))
     printf("[SERVER %d] received: %s\n", getpid(), buffer );
-    }
-  }
+
+  close(connection);
   
   return 0;
 }
