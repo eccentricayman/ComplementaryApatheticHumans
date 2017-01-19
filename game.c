@@ -25,7 +25,21 @@ int server_connect(int sd) {
   unsigned int sock1_len = sizeof(sock1);
   connection = accept(sd, (struct sockaddr *)&sock1, &sock1_len);
 
-  printf("[GAME] CONNECTED TO %s\n" inet_ntoa(sock1.sin_addr));
+  printf("[GAME] CONNECTED TO %s\n", inet_ntoa(sock1.sin_addr));
 
   return connection;
+}
+
+int main() {
+  int sd ,connection; 
+  sd = server_setup();
+  char buffer[1000];
+  while(1){
+    connection = server_connect(sd);
+    while (read( connection, buffer, sizeof(buffer) )) {
+    printf("[SERVER %d] received: %s\n", getpid(), buffer );
+    }
+  }
+  
+  return 0;
 }

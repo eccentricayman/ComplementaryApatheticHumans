@@ -1,2 +1,3 @@
 aymanA - 2017-01-17 03:32:02 PM - added getWhiteCard and getBlackCard
 jasonC - 2017-01-17 03:38:00 PM - Started server/client interaction
+jasonC - 2017-01-19 03:19:23 PM - Set up basic game connection.
