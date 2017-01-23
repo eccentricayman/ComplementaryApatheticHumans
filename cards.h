@@ -19,4 +19,8 @@ char * getWhiteCard();
 //Returns random black card as a string and removes it from cards
 char * getBlackCard();
 
+//replaces part of a string with another
+char * replace(char * str, char * toReplace, char * replacingWith);
+
 //prints a card, with newlines, italics, and other formatting
+void printCard(char * card);

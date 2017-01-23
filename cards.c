@@ -56,39 +56,70 @@ char * getBlackCard() {
     return NULL;
 }
 
-void printCard(char * toPrint) {
-    //we are replacing these with their respective term versions
-    const char italic[3] = "<i>";
-    const char italicClose[4] = "</i>";
-    const char newline[4] = "<br>";
-
-    //so we don't modify original pointer
-    char * toPrintLocal = "";
-    
-    //parsing
-    if (strstr(toPrint, "<") == strstr(toPrint, "<i>")) {
-        strncpy(toPrintLocal, toPrint, strstr(toPrint, "<") - toPrint);
-        strcpy(toPrintLocal, "\e[3m");
-        sprintf(toPrintLocal, "%.*s", 4, strstr(toPrint, "<") + 3);
-        //debuggin
-        printf("%.*s", 4, strstr(toPrint, "<") + 3);
-        printf("%s", toPrintLocal);
-        printCard(toPrintLocal);
+int countOccurences(char * string) {
+    int ctr = 0;
+    char * temp = string;
+    while((temp = strstr(temp, "<i>"))) {
+        ctr++;
+        temp++;
     }
-    else if (strstr(toPrint, "<") == strstr(toPrint, newline)) {
-        
-    }
-    else if (strstr(toPrint, "<") == strstr(toPrint, italicClose)) {
-        
-    }
-    else {
-        printf("%s", toPrint);
-    }
+    return ctr;
 }
 
-int main() {
-    printf("white: %s\n", getWhiteCard());
-    printf("black: %s\n", getBlackCard());
-    return 0;
-    printCard("ayy<i>ayy");
+char * replace(char * str, char * toReplace, char * replacingWith) {
+    char *result; //retstr
+    char *ins; //next insert point
+    char *tmp;    
+    int len_rep; // len of str to remove
+    int len_with; // len of str to replace with
+    int len_front; // distance between str to rm and last str to rm
+    int count; //# of replacements
+
+    if (!str || !toReplace)
+        return NULL;
+    len_rep = strlen(toReplace);
+    if (len_rep == 0)
+        return NULL;
+    if (!replacingWith)
+        replacingWith = "";
+    len_with = strlen(replacingWith);
+
+    // count the number of replacements needed
+    ins = str;
+    for (count = 0; (tmp = strstr(ins, toReplace)); ++count) {
+        ins = tmp + len_rep;
+    }
+
+    tmp = result = malloc(strlen(str) + (len_with - len_rep) * count + 1);
+
+    if (!result)
+        return NULL;
+
+    //    tmp points to the end of the result string
+    //    ins points to the next occurrence of rep in str
+    //    str points to the remainder of str after "end of rep"
+    while (count--) {
+        ins = strstr(str, toReplace);
+        len_front = ins - str;
+        tmp = strncpy(tmp, str, len_front) + len_front;
+        tmp = strcpy(tmp, replacingWith) + len_with;
+        str += len_front + len_rep;
+    }
+    strcpy(tmp, str);
+    return result;
+}
+
+void printCard(char * card) {
+    //local copy
+    char *localCard = malloc (strlen (card) * 2);
+    localCard = card;
+    //replace for <i>
+    localCard = replace(localCard, "<i>", "\e[3m");
+    //replace for </i>
+    localCard = replace(localCard, "</i>", "\e[0m");
+    //replace <br>
+    localCard = replace(localCard, "<br>", "\n");
+    //print
+    printf("%s", localCard);
+    free(localCard);
 }

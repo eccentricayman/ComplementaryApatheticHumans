@@ -3,3 +3,4 @@ jasonC - 2017-01-17 03:38:00 PM - Started server/client interaction
 aymanA - 2017-01-18 01:13:54 AM - control flow for printCard
 jasonC - 2017-01-19 03:19:23 PM - Set up basic game connection.
 jasonC - 2017-01-19 03:36:28 PM - Started adding semaphores.
+aymanA - 2017-01-23 03:25:24 AM - added replace, and printCard working
