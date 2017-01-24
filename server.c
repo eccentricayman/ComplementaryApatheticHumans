@@ -16,67 +16,47 @@ int server_setup() {
     return sd;
 }
 
-int server_connect(int master_socket) {
+int main() {
   
-    int connection, new_socket, client_socket[4], max_clients, sd, max_sd, i;
-    max_clients = 4;
-  
-    fd_set readfds;
-  
-    struct sockaddr_in sock;
-    unsigned int sock_len = sizeof(sock);
-  
-    for (i = 0; i < max_clients; i++)
-        client_socket[i] = 0;
-  
-    printf("Waiting for connections on port %d\n", 9001);
+    int sd, connection, len;
+    struct sockaddr_in sock, sock1;
+    char buffer[1000];
+    pid_t childpid;
+    char client[100];
+
+    sd = server_setup();
+
+    printf("Waiting for a connection...\n");
   
     listen(sd, 4);
-  
-    while (client_socket[3] == 0) {
-        FD_ZERO(&readfds);
 
-        FD_SET(master_socket, &readfds);
-        max_sd = master_socket;
+    while (1) {
 
-        for (i = 0 ; i < max_clients ; i++) {  
- 
-            sd = client_socket[i];  
-
-            if (sd > 0)
-                FD_SET(sd, &readfds);
-                
-            if(sd > max_sd)  
-                max_sd = sd;
-        }
+        len = sizeof(sock1);
     
-        select(max_sd + 1, &readfds, NULL, NULL, NULL);
+        connection = accept(sd, (struct sockaddr *)&sock1, &len);
+
+        read(connection, buffer, sizeof(buffer));
+        strcpy(client, buffer);
+
+        printf("Connection accepted...\n");
     
-        if (FD_ISSET(master_socket, &readfds)) {
-            new_socket = accept(master_socket, (struct sockaddr *)&sock, &sock_len);
-      
-            printf("New connection, socket fd: %d, ip: %s, port: %d\n",
-                   new_socket, inet_ntoa(sock.sin_addr), ntohs(sock.sin_port));
-      
-            for (i = 0; i < max_clients; i++) {  
-                if(client_socket[i] == 0) {  
-                    client_socket[i] = new_socket;  
-                    printf("Adding to list of sockets as %d\n" , i);  
-	  
-                    break;  
-                }
+        if ((childpid = fork()) == 0) {
+
+            close(sd);
+
+            while (1) {
+
+                read(connection, buffer, sizeof(buffer));
+                printf("Received data from %s: %s\n", client, buffer);
+
+                write(connection, buffer, sizeof(buffer));
+                printf("Sent data to %s: %s\n", client, buffer);
             }
         }
+    
+        close(connection);
     }
-    return 1; //WHAT DO I RETURN HERE?????
+
+    return 0;
 }
-
-int main()  {
-
-    int master_socket, connection;
-  
-    master_socket = server_setup();
-    char buffer[1000];
-  
-    return 0;  
-}  
