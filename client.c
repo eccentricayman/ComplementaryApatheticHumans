@@ -47,7 +47,7 @@ int main() {
     fgets(buffer, sizeof(buffer), stdin);
     *strchr(buffer, '\n') = 0;
     write(sd, buffer, sizeof(buffer));
-
+    
     while(1) {
         if (czar) {
             printf("\e[0;31mYou are the czar this turn!\e[0m");
@@ -68,9 +68,9 @@ int main() {
             strcpy(buffer, getWhiteCard(cardChoice));
             write(sd, buffer, sizeof(buffer));
             
-            read(sd, buffer, sizeof(buffer));
+	read(sd, buffer, sizeof(buffer));
             
-            printf("Received: %s\n", buffer);
+	printf("Received: %s\n", buffer);
         }
     }
 

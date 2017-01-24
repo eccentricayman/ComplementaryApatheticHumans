@@ -8,6 +8,8 @@
 #include <string.h>
 #include "cards.h"
 
+int client_connect(char * host);
+
 //is the user the czar?
 int czar;
 
