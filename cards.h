@@ -19,8 +19,18 @@ char * getWhiteCard();
 //Returns random black card as a string and removes it from cards
 char * getBlackCard();
 
-//replaces part of a string with another
-char * replace(char * str, char * toReplace, char * replacingWith);
+//count how many times tofind occurs in string
+int countOccurences(char * string, char * toFind);
+
+//replace first instance of a string with another
+char * replace(char * str , char * toReplace, char * replacingWith);
+
+//replaces all instances of a string with another
+char * replaceAll(char * str, char * toReplace, char * replacingWith);
 
 //prints a card, with newlines, italics, and other formatting
 void printCard(char * card);
+
+//combines a black card and white card, or black card and 2 white cards
+//in the first place, the second white card doesn't matter
+char * combineCards(char * black, char * white1, char * white2);
