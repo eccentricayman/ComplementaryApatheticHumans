@@ -24,7 +24,8 @@ void printCards() {
     if (cards) {
         printf("Your Cards:\n");
         while (cardsLocal) {
-            printf("%d. %s\n", ctr, getWhiteCard(*cardsLocal));
+            printf("%d.", ctr);
+            printCard(getWhiteCard(*cardsLocal));
             cardsLocal++;
             ctr++;
         }
@@ -34,6 +35,7 @@ void printCards() {
 int main() {
 
     int sd;
+    char blackCard[1000];
     char buffer[1000];
     char * host = "127.0.0.1";
 
@@ -50,7 +52,9 @@ int main() {
         }
         else {
             printCards();
-            printf("\e[0;32mayy\e[0m\n");
+            //read black card from server
+            read(sd, buffer, sizeof(buffer));
+            printf("\e[0;32m%s\e[0m\n", buffer);
             printf("Pick a Card: ");
             fgets(buffer, sizeof(buffer), stdin);
             write(sd, buffer, sizeof(buffer));
