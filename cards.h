@@ -31,5 +31,6 @@ char * replaceAll(char * str, char * toReplace, char * replacingWith);
 //prints a card, with newlines, italics, and other formatting
 void printCard(char * card);
 
-//combines a black card and white card
+//combines a black card and white card, or black card and 2 white cards
+//in the first place, the second white card doesn't matter
 char * combineCards(char * black, char * white1, char * white2);
