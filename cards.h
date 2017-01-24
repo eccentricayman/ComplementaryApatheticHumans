@@ -12,12 +12,12 @@ int usedWhiteCards[1589] = { 1 };
 int randInt(int max);
 
 //hardcoded limit: 425 black cards
-//Returns random white card as a string and removes it from cards
-char * getWhiteCard();
+//gets a white card from an index
+char * getWhiteCard(int index);
 
 //hardcoded limit: 1589 white cards
-//Returns random black card as a string and removes it from cards
-char * getBlackCard();
+//gets a black card from an index
+char * getBlackCard(int index);
 
 //count how many times tofind occurs in string
 int countOccurences(char * string, char * toFind);

@@ -10,8 +10,7 @@ int randInt(int max) {
     return (unsigned int)(buffer) % max;
 }
 
-char * getWhiteCard() {
-    int randIndex = randInt(1590);
+char * getWhiteCard(int index) {
     FILE *file = fopen("white.txt", "r");
     int ctr = 0;
 
@@ -19,7 +18,7 @@ char * getWhiteCard() {
         //biggest line i've seen is like 110
         char line[256];
         while (fgets(line, sizeof line, file) != NULL) {
-            if (ctr == randIndex) {
+            if (ctr == index) {
                 char * retP = malloc(256);
                 strcpy(retP, line);
                 return retP;
@@ -33,8 +32,7 @@ char * getWhiteCard() {
     return NULL;
 }
 
-char * getBlackCard() {
-    int randIndex = randInt(426);
+char * getBlackCard(int index) {
     FILE *file = fopen("black.txt", "r");
     int ctr = 0;
 
@@ -42,7 +40,7 @@ char * getBlackCard() {
         //biggest line i've seen is like 110
         char line[256];
         while (fgets(line, sizeof line, file) != NULL) {
-            if (ctr == randIndex) {
+            if (ctr == index) {
                 char * retP = malloc(256);
                 strcpy(retP, line);
                 return retP;

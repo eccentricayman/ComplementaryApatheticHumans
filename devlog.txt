@@ -6,3 +6,4 @@ jasonC - 2017-01-19 03:36:28 PM - Started adding semaphores.
 aymanA - 2017-01-23 03:25:24 AM - added replace, and printCard working
 aymanA - 2017-01-23 11:16:59 PM - added colors and better completedcard formatting
 jasonC - 2017-01-24 12:14:09 AM - Wrote code for server that reads from multiple clients (incomplete)
+aymanA - 2017-01-24 06:19:12 AM - added server.h
