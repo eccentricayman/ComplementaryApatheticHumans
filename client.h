@@ -7,4 +7,6 @@
 #include <unistd.h>
 #include <string.h>
 
+#define ERROR "Connection rejected. There are already 4 players in the game."
+
 int client_connect(char * host);

@@ -14,7 +14,7 @@ int client_connect(char * host) {
   connect(sd, (struct sockaddr *)&sock, sizeof(sock));
 
   printf("Connected to the server...\n");
-
+  
   return sd;
 }
 
@@ -25,20 +25,20 @@ int main() {
   char * host = "127.0.0.1";
 
   sd = client_connect(host);
-
+  
   printf("What will your display name be? ");
   fgets(buffer, sizeof(buffer), stdin);
   *strchr(buffer, '\n') = 0;
   write(sd, buffer, sizeof(buffer));
-
+  
   while(1) {
-
+    
     printf("Enter your message: ");
     fgets(buffer, sizeof(buffer), stdin);
     write(sd, buffer, sizeof(buffer));
-
+    
     read(sd, buffer, sizeof(buffer));
-
+    
     printf("Received: %s\n", buffer);
   }
 
