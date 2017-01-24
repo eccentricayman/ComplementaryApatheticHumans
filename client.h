@@ -6,7 +6,18 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
-
-#define ERROR "Connection rejected. There are already 4 players in the game."
+#include "cards.h"
 
 int client_connect(char * host);
+
+//is the user the czar?
+int czar;
+
+//index of this user's cards
+int * cards;
+
+//connects to the server
+int client_connect(char *host);
+
+//prints user cards
+void printCards();

@@ -1,19 +1,20 @@
+#include "cards.h"
 #include "server.h"
 
 int server_setup() {
 
-  int sd;
+    int sd;
 
-  sd = socket(AF_INET, SOCK_STREAM, 0);
+    sd = socket(AF_INET, SOCK_STREAM, 0);
 
-  struct sockaddr_in sock;
-  sock.sin_family = AF_INET;
-  sock.sin_addr.s_addr = INADDR_ANY;
-  sock.sin_port = htons(9001);
+    struct sockaddr_in sock;
+    sock.sin_family = AF_INET;
+    sock.sin_addr.s_addr = INADDR_ANY;
+    sock.sin_port = htons(9001);
 
-  bind(sd, (struct sockaddr *)&sock, sizeof(sock));
+    bind(sd, (struct sockaddr *)&sock, sizeof(sock));
 
-  return sd;
+    return sd;
 }
 
 int main() {
@@ -38,7 +39,7 @@ int main() {
   while (1) {
 
     len = sizeof(sock1);
-    
+
     connection = accept(sd, (struct sockaddr *)&sock1, &len);
     
     if (players[3] == 0) {

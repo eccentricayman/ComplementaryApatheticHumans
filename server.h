@@ -5,5 +5,6 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
+#include "cards.h"
 
 int server_setup();
