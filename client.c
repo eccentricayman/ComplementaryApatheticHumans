@@ -80,7 +80,7 @@ int main() {
             //generic info
             read(sd, buffer, sizeof(buffer));
             if (!strcmp(buffer, "WINNER")) {
-                printf("Your have won this round.");
+                printf("You have won this round.");
                 czar = 1;
             }
             else {

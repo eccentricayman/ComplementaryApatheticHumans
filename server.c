@@ -25,8 +25,7 @@ int main() {
     pid_t childpid;
     char * players[4];
     //keep track of czar server-side
-    int czar[4] = { 0 };
-    czar[0] = 1;
+    int czar = 0;
 
     sd = server_setup();
 
@@ -64,12 +63,42 @@ int main() {
                 close(sd);
 	
                 while (1) {
-
+                    //to store cards
+                    char answers[4][1000];
+                    
+                    //get a black card
+                    char * black = getBlackCard(randInt(425));
+                    printf("Black Card: %s\n", black);
+                    write(connection, black, sizeof(black));
+                    
                     read(connection, buffer, sizeof(buffer));
                     printf("Received data from %s: %s\n", client, buffer);
-
-                    write(connection, buffer, sizeof(buffer));
-                    printf("Sent data to %s: %s\n", client, buffer);
+                    for (int i = 0 ; i < 4 ; i++) {
+                        if (!strcmp(client, players[i])) {
+                            strcpy(answers[i], buffer);
+                        }
+                    }
+                    //send data to czar
+                    if (!strcmp(client, players[czar])) {
+                        strcpy(buffer, combineCards(black, answers[i], NULL));
+                        write(connection, buffer, sizeof(buffer));
+                        printf("Sent data to %s: %s\n", client, buffer);
+                        //read from czar
+                        read(connection, buffer, sizeof(buffer));
+                        for (int i = 0 ; i < 4 ; i++) {
+                            if (!strcmp(answers[i], buffer)) {
+                                czar = i;
+                            }
+                        }
+                    }
+                    //new czar
+                    if (!strcmp(client, players[czar])) {
+                        
+                    }
+                    else {
+                        int rand = randInt(1590);
+                        write(connection, &rand, sizeof(rand));
+                    }
                 }
             }
     

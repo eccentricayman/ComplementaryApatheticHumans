@@ -13,3 +13,4 @@ jasonC - 2017-01-24 02:26:16 AM - server now accepts multiple client connections
 jasonC - 2017-01-24 03:17:39 AM - Able to select a display name when connecting to the server
 >>>>>>> b3f2703e56eac99a9495f94a44cc7fe2389177a4
 aymanA - 2017-01-24 07:04:08 AM - removed binaries, working on client methods
+aymanA - 2017-01-24 08:32:58 AM - partial server/client functionality
