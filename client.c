@@ -36,6 +36,8 @@ int main() {
 
     int sd;
     char blackCard[1000];
+    char cardChoiceInput[10];
+    int cardChoice;
     char buffer[1000];
     char * host = "127.0.0.1";
 
@@ -52,11 +54,18 @@ int main() {
         }
         else {
             printCards();
-            //read black card from server
-            read(sd, buffer, sizeof(buffer));
-            printf("\e[0;32m%s\e[0m\n", buffer);
+            //read and print black card from server
+            read(sd, blackCard, sizeof(blackCard));
+            printf("\e[0;32m");
+            printCard(blackCard);
+            printf("\e[0m\n");
+
+            //get card
             printf("Pick a Card: ");
-            fgets(buffer, sizeof(buffer), stdin);
+            fgets(cardChoiceInput, 10, stdin);
+            cardChoice = atoi(cardChoiceInput);
+            //write that white card to buffer
+            strcpy(buffer, getWhiteCard(cardChoice));
             write(sd, buffer, sizeof(buffer));
             
             read(sd, buffer, sizeof(buffer));
