@@ -10,6 +10,7 @@ int server_setup() {
   sock.sin_family = AF_INET;
   sock.sin_addr.s_addr = INADDR_ANY;
   sock.sin_port = htons(9001);
+  
   i = bind(sd, (struct sockaddr *)&sock, sizeof(sock));
   
   return sd;
@@ -19,7 +20,7 @@ int server_connect(int sd) {
  
   int connection, i;
 
-  i = listen(sd, 1);
+  i = listen(sd, 4);
   
   struct sockaddr_in sock1;
   unsigned int sock1_len = sizeof(sock1);
@@ -32,7 +33,7 @@ int server_connect(int sd) {
 
 int main() {
 
-  int sd ,connection, semid;
+  int sd, connection;
 
   sd = server_setup();
   char buffer[1000];
