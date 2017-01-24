@@ -7,3 +7,4 @@ aymanA - 2017-01-23 03:25:24 AM - added replace, and printCard working
 aymanA - 2017-01-23 11:16:59 PM - added colors and better completedcard formatting
 jasonC - 2017-01-24 12:14:09 AM - Wrote code for server that reads from multiple clients (incomplete)
 jasonC - 2017-01-24 02:26:16 AM - server now accepts multiple client connections
+jasonC - 2017-01-24 03:17:39 AM - Able to select a display name when connecting to the server

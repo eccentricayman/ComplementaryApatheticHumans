@@ -1,9 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
+#include "server.h"
+
+int server_setup() {
+
+  int sd;
+
+  sd = socket(AF_INET, SOCK_STREAM, 0);
+
+  struct sockaddr_in sock;
+  sock.sin_family = AF_INET;
+  sock.sin_addr.s_addr = INADDR_ANY;
+  sock.sin_port = htons(9001);
+
+  bind(sd, (struct sockaddr *)&sock, sizeof(sock));
+
+  return sd;
+}
 
 int main() {
   
@@ -12,14 +23,8 @@ int main() {
   char buffer[1000];
   pid_t childpid;
   char client[100];
- 
-  sd = socket(AF_INET, SOCK_STREAM, 0);
 
-  sock.sin_family = AF_INET;
-  sock.sin_addr.s_addr = INADDR_ANY;
-  sock.sin_port = htons(9001);
-
-  bind(sd, (struct sockaddr *) &sock, sizeof(sock));
+  sd = server_setup();
 
   printf("Waiting for a connection...\n");
   
@@ -31,9 +36,10 @@ int main() {
     
     connection = accept(sd, (struct sockaddr *)&sock1, &len);
 
-    printf("Connection accepted...\n");
+    read(connection, buffer, sizeof(buffer));
+    strcpy(client, buffer);
 
-    inet_ntop(AF_INET, &(sock1.sin_addr), client, 100);
+    printf("Connection accepted...\n");
     
     if ((childpid = fork()) == 0) {
 
