@@ -1,3 +1,4 @@
+#include "cards.h"
 #include "server.h"
 
 int server_setup() {

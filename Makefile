@@ -1,3 +1,3 @@
 compile: server.c client.c
-	gcc client.c -o client
-	gcc server.c -o server
+	gcc cards.c client.c -o client
+	gcc cards.c server.c -o server

@@ -6,6 +6,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
+#include "cards.h"
 
 //is the user the czar?
 int czar;
@@ -17,3 +18,4 @@ int * cards;
 int client_connect(char *host);
 
 //prints user cards
+void printCards();
