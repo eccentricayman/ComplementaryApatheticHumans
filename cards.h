@@ -4,10 +4,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-//intitialize them to 1, change em to 0 once used
-int usedBlackCards[425] = { 1 };
-int usedWhiteCards[1589] = { 1 };
-
 //random int from [0, max)
 int randInt(int max);
 

@@ -19,60 +19,63 @@ int server_setup() {
 
 int main() {
   
-  int sd, connection, len, i;
-  struct sockaddr_in sock, sock1;
-  char buffer[1000], client[100];
-  pid_t childpid;
-  char * players[4];
+    int sd, connection, len, i;
+    struct sockaddr_in sock, sock1;
+    char buffer[1000], client[100];
+    pid_t childpid;
+    char * players[4];
+    //keep track of czar server-side
+    int czar[4] = { 0 };
+    czar[0] = 1;
 
-  sd = server_setup();
+    sd = server_setup();
 
-  for (i = 0; i < 4; i++)
-    players[i] = 0;
+    for (i = 0; i < 4; i++)
+        players[i] = 0;
 
-  printf("Waiting for a connection...\n");
+    printf("Waiting for a connection...\n");
   
-  listen(sd, 4);
+    listen(sd, 4);
 
-  i = 0;
+    i = 0;
 
-  while (1) {
+    while (1) {
 
-    len = sizeof(sock1);
+        len = sizeof(sock1);
 
-    connection = accept(sd, (struct sockaddr *)&sock1, &len);
+        connection = accept(sd, (struct sockaddr *)&sock1, &len);
     
-    if (players[3] == 0) {
+        if (players[3] == 0) {
       
-      read(connection, buffer, sizeof(buffer));
-      strcpy(client, buffer);
-      players[i] = (char *)malloc(strlen(buffer)+1);
-      strcpy(players[i], buffer);
-      i++;
+            read(connection, buffer, sizeof(buffer));
+            strcpy(client, buffer);
+            players[i] = (char *)malloc(strlen(buffer)+1);
+            strcpy(players[i], buffer);
+            i++;
       
-      printf("Connection accepted...\n");
+            printf("Connection accepted...\n");
       
-      int a;
-      for (a = 0; a < 4; a++)
-	printf("Player %d: %s\n", a, players[a]);
+            int a;
+            for (a = 0; a < 4; a++)
+                printf("Player %d: %s\n", a, players[a]);
       
-      if ((childpid = fork()) == 0) {
+            if ((childpid = fork()) == 0) {
 
-	close(sd);
+                close(sd);
 	
-	while (1) {
+                while (1) {
 
-	  read(connection, buffer, sizeof(buffer));
-	  printf("Received data from %s: %s\n", client, buffer);
+                    read(connection, buffer, sizeof(buffer));
+                    printf("Received data from %s: %s\n", client, buffer);
 
-	  write(connection, buffer, sizeof(buffer));
-	  printf("Sent data to %s: %s\n", client, buffer);
-	}
-      }
+                    write(connection, buffer, sizeof(buffer));
+                    printf("Sent data to %s: %s\n", client, buffer);
+                }
+            }
     
-      close(connection);
+            close(connection);
+        }
     }
-  }
 
-  return 0;
+    return 0;
 }

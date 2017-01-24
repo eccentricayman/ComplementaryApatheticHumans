@@ -77,8 +77,24 @@ int main() {
             //write that white card to buffer
             strcpy(buffer, getWhiteCard(cardChoice));
             write(sd, buffer, sizeof(buffer));
-            
+            //generic info
             read(sd, buffer, sizeof(buffer));
+            if (!strcmp(buffer, "WINNER")) {
+                printf("Your have won this round.");
+                czar = 1;
+            }
+            else {
+                int index = atoi(buffer);
+                //printing card
+                printCard(getWhiteCard(index));
+                //adding it to cards
+                int * lastIndex = cards;
+                while (lastIndex) {
+                    lastIndex++;
+                }
+                lastIndex++;
+                lastIndex = &index;
+            }
         }
     }
 
