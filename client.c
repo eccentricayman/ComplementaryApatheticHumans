@@ -1,3 +1,4 @@
+#include "cards.h"
 #include "client.h"
 
 int client_connect(char * host) {
@@ -51,6 +52,15 @@ int main() {
     while(1) {
         if (czar) {
             printf("\e[0;31mYou are the czar this turn!\e[0m");
+            read(sd, buffer, sizeof(buffer));
+            printCard(buffer);
+            printf("Pick the funniest one: ");
+            fgets(cardChoiceInput, 10, stdin);
+            //counting starts from 0, but displays from 1
+            cardChoice = atoi(cardChoiceInput) - 1;
+            //write choice to buffer
+            write(sd, &cardChoice, sizeof(cardChoice));
+            czar = 0;
         }
         else {
             printCards();
@@ -68,9 +78,7 @@ int main() {
             strcpy(buffer, getWhiteCard(cardChoice));
             write(sd, buffer, sizeof(buffer));
             
-	read(sd, buffer, sizeof(buffer));
-            
-	printf("Received: %s\n", buffer);
+            read(sd, buffer, sizeof(buffer));
         }
     }
 

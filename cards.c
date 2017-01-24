@@ -1,4 +1,8 @@
-#include "cards.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 int randInt(int max) {
     int fd = open("/dev/urandom", O_RDONLY);
